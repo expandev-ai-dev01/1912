@@ -7,13 +7,22 @@
  */
 
 import { Router } from 'express';
+import * as portalController from '@/api/v1/external/portal/controller';
 
 const router = Router();
 
 /**
- * @remarks
- * External routes will be added here as features are implemented.
- * Examples: authentication, public data access, webhooks, etc.
+ * @route GET /portal/products
+ * @description Retrieve paginated product catalog
+ * @access Public
  */
+router.get('/portal/products', portalController.getProductsHandler);
+
+/**
+ * @route GET /portal/profile
+ * @description Retrieve company institutional profile (history, location, contact)
+ * @access Public
+ */
+router.get('/portal/profile', portalController.getProfileHandler);
 
 export default router;
